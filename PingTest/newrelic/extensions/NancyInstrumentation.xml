@@ -4,6 +4,12 @@
 
     <tracerFactory>
       <match assemblyName="PingTest" className="PingTest.IndexModule">
+        <exactMethodMatcher methodName="Sleep" />
+      </match>
+    </tracerFactory>
+
+    <tracerFactory>
+      <match assemblyName="PingTest" className="PingTest.IndexModule">
         <exactMethodMatcher methodName="GetVersion" />
       </match>
     </tracerFactory>

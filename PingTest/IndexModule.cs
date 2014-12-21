@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 
 namespace PingTest
 {
@@ -13,6 +14,8 @@ namespace PingTest
         {
             Get["/"] = parameters =>
             {
+                Sleep();
+
                 var ping = new
                            {
                                Version = GetVersion(),
@@ -21,6 +24,11 @@ namespace PingTest
 
                 return Response.AsJson(ping);
             };
+        }
+
+        private void Sleep()
+        {
+            Thread.Sleep(2000);
         }
 
         private string GetVersion()
